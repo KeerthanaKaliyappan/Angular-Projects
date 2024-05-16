@@ -1,0 +1,48 @@
+<div class="container">
+    <div class="card p-5 shadow offset-3 col-6">
+        <form #addProductForm="ngForm" ngNativeValidate (ngSubmit)="registerProduct(); addProductForm.resetForm()">
+            <div class="form-group">
+                <label>Product Name:</label>
+                <input 
+                required
+                [(ngModel)]="product.productname"
+                type="text" 
+                class="form-control"
+                id="productname"
+                name="productname">
+            </div>
+            <div class="form-group">
+                <label>Description:</label>
+                <input 
+                required
+                [(ngModel)]="product.productdescription"
+                type="text" 
+                class="form-control"
+                id="productdescription"
+                name="productdescription">
+            </div>
+            <div class="form-group">
+                <label>Price:</label>
+                <input 
+                required
+                [(ngModel)]="product.price"
+                type="number" 
+                min="1"
+                class="form-control"
+                id="price"
+                name="price">
+            </div>
+            <div class="form-group">
+                <label>Image:</label>
+                <input
+                 required
+                 type="file"
+                 (change)="selectFile($event)"
+                >
+            </div>
+            <div>
+                <button type="submit" class="btn btn-success" (click)="upload()">Add Product</button>
+            </div>
+        </form>
+    </div>
+</div>

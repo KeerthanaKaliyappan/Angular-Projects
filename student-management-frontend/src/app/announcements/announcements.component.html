@@ -1,0 +1,17 @@
+<div class="container">
+<marquee>
+    <h3 class="alert alert-danger" role="alert">
+        Hurray! Upcoming college activitys to your notice
+    </h3>
+</marquee>
+   <table class = "table table-striped" aria-describedby="announcements-table">
+       <th id="activity">Upcoming Events</th>
+       <th id="date">Month</th>
+       <tr *ngFor ="let announcement of announcements">
+           <td>{{announcement.activity}}</td>
+           <td>{{announcement.date}}</td>
+       </tr>
+   </table>
+</div>
+
+

@@ -1,0 +1,35 @@
+<div class="container">
+    <br>
+    <div 
+    type="alert" 
+    class="alert alert-danger"
+    *ngIf ="isCartEmpty">
+        Cart is empty!
+    </div>
+   <table class = "table table-striped" aria-describedby="cart-table">
+       <th id="pproduct_name">Product Name</th>
+       <th id="product_quantity">Quantity</th>
+       <th id="product_subprice">Price</th>
+       <th id="action">Actions</th>
+       <tr *ngFor ="let cart of carts">
+           <td>{{cart.productId.productname}}</td>
+           <td>
+               <input min="1" type="number" value="{{cart.quantity}}" #quantity>
+            </td>
+           <td>{{cart.subprice}}</td>
+           <td>
+            <button class="btn btn-info" (click)="getUpdateCartItem(cart.productId,quantity.value)">Update</button>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <button class="btn btn-secondary" (click)="getDeleteCartItem(cart.productId.productid)">Remove</button>
+          </td>
+       </tr>
+   </table>
+   <div>
+        <strong>Total Price:</strong>&nbsp;&nbsp;
+        <em>{{totalPrice | currency: 'INR'}}</em> 
+        <br>
+   </div>
+   <div class="text-right p-3" *ngIf="totalPrice != null">
+       <button class="btn btn-primary" (click)="goToPayment()">Proceed to pay</button>
+   </div>
+</div>

@@ -1,0 +1,78 @@
+<div class="card p-5 offset-3 col-6 shadow">
+    <div *ngIf="invalidCredentials" class="alert alert-danger">
+        Invalid card!
+    </div>
+    <form ngNativeValidate (ngSubmit)="checkPayment()"> 
+        <div class="form-group">
+            <label>Card Holder Name</label>
+            <input
+            required
+            minlength="2"
+            [(ngModel)]="cardHolderName"
+            type="text"
+            class="form-control"
+            id="cardHolderName"
+            name="cardHolderName"
+            placeholder="Enter card holder name"
+            >
+        </div>
+        <div class="form-group">
+            <label>Card Number</label>
+            <input
+            required
+            minlength="16"
+            maxlength="16"
+            [(ngModel)]="cardNumber"
+            type="text"
+            class="form-control"
+            id="cardNumber"
+            name="cardNumber"
+            placeholder="XXXX XXXX XXXX XXXX"
+            >
+        </div>
+        <div class="form-group">
+            <label>Expiry</label>
+            <input
+            required
+            minlength="2"
+            maxlength="2"
+            [(ngModel)]="expiryMonth"
+            type="text"
+            class="form-control"
+            id="expiryMonth"
+            name="expiryMonth"
+            placeholder="MM"
+            style="width: 50%;"
+            >
+            <input
+            required
+            minlength="2"
+            maxlength="2"
+            [(ngModel)]="expiryYear"
+            type="text"
+            class="form-control"
+            id="expiryYear"
+            name="expiryYear"
+            placeholder="YY"
+            style="width: 50%;"
+            >
+        </div>
+        <div class="form-group">
+            <label>CVV</label>
+            <input
+            required
+            minlength="3"
+            maxlength="3"
+            [(ngModel)]="cvv"
+            type="password"
+            class="form-control"
+            id="cvv"
+            name="cvv"
+            placeholder="Enter cvv"
+            >
+        </div>
+        <div>
+            <button class="btn btn-success">&nbsp;Pay&nbsp;</button>
+        </div>
+    </form>
+</div>

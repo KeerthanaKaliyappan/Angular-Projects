@@ -1,0 +1,32 @@
+<div class="container">
+    <h4>Welcome {{user.username}} !</h4>
+    <div class="row offset-3 p-2">
+        <input 
+            class="form-control" 
+            [(ngModel)]="keyword" 
+            id="keyword" 
+            name="keyword" 
+            style="width: 30%;">
+            &nbsp;
+        <button class="btn btn-warning" (click)="search()">Search</button>
+    </div>
+    <br>
+    <h4 *ngIf="itemNotFound == true" class="alert alert-warning text-center">Item not found!</h4>
+    <div class="row">
+        <div class="col-3" *ngFor = "let product of products">
+            <div class="card">
+                <div class="card-body">
+                    <strong class="card-title">{{product.productname}}</strong><br><br>
+                    <img src="{{product.imagePath}}" alt="Product image" class="img-responsive" width="200px" height="150px">
+                    <br><br>
+                    <em class="card-text">{{product.price | currency: 'INR'}}</em>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <button class="btn btn-success" (click)="goToProduct(product.productid)">View</button>
+                </div>
+            </div>
+            <br>
+        </div>
+        <br>
+    </div>
+    <button class="btn btn-primary">Chat Bot</button>
+</div>

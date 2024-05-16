@@ -1,0 +1,17 @@
+<div class="container">
+    <div class="p-2">
+        <strong>{{product.productname}}</strong>
+        <br><br>
+        <img src="{{product.imagePath}}" alt="Product image">
+        <br><br>
+        <p>{{product.productdescription}}</p>
+        <p>Price:&nbsp;{{product.price | currency: 'INR'}}</p>
+        <div *ngIf="!existingItem;then addCart else editCart"></div>
+        <ng-template #addCart>
+            <button class="btn btn-primary" (click)="getAddToCart()">Add To Cart</button>
+        </ng-template>
+        <ng-template #editCart>
+            <button class="btn btn-primary" (click)="goToCart()">Edit Cart</button>
+        </ng-template>
+    </div>
+</div>

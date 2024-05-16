@@ -1,0 +1,16 @@
+<div *ngIf="showNavigation()">
+    <ul class="nav justify-content-end" style="background-color:rgb(225, 226, 225)">
+        <li class="nav-item">
+            <a class="nav-link" routerLink="student/{{studentId}}">Profile</a>
+        </li>&nbsp;
+        <li class="nav-item">
+            <a class="nav-link" routerLink="studentMarks/{{studentId}}" (click)="getMarks()">Marks</a>
+        </li>&nbsp;
+        <li class="nav-item">
+            <a class="nav-link" routerLink="announcements">Announcement</a>
+        </li>&nbsp;
+        <li class="nav-item">
+            <a class="nav-link" routerLink="logout" (click)="logout()">Logout</a>
+        </li>&nbsp;
+    </ul>
+</div>
