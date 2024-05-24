@@ -1,0 +1,38 @@
+<div id="search">
+    <input class="p-1" type="search" placeholder="Department" aria-label="Search" [(ngModel)]="keyword" />&nbsp;
+    <button class="btn btn-outline-success" 
+            id="searchButton" 
+            type="submit" 
+            (click)="getEmployeesByDepartment()">Search</button>
+    <br />
+    <br />
+</div>
+<div>
+    <a routerLink="employees" class="btn btn-success">Add Employee</a>
+    <br />
+    <br />
+</div>
+<div id="table">
+<table class="table table-striped">
+    <thead class="table-dark">
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Department</th>
+            <th>Phone</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let employee of employees">
+            <td>{{employee.name}}</td>
+            <td>{{employee.email}}</td>
+            <td>{{employee.department}}</td>
+            <td>{{employee.phone}}</td>
+            <td><button type="submit" class="btn btn-danger" (click)="updateEmployeeById(employee.id)">Update</button> &nbsp;
+                <button type="submit" class="btn btn-primary" (click)="deleteEmployeeById(employee.id)">Delete</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+</div>
